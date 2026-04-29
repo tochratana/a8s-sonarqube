@@ -1,0 +1,7 @@
+Waits for the SonarQube Quality Gate result.
+
+Options:
+- timeoutMinutes: default 5
+- abortPipeline: default true
+
+Requires the SonarQube webhook to be configured back to Jenkins.

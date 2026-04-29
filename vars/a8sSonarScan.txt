@@ -1,0 +1,14 @@
+Runs a SonarQube analysis with the configured Jenkins SonarQube server.
+
+Required:
+- projectKey
+
+Common options:
+- server: Jenkins SonarQube server name, default "sonarqube"
+- scannerTool: optional Jenkins SonarScanner tool name
+- scannerCommand: optional scanner command, default "sonar-scanner"
+- projectName
+- projectVersion
+- sources
+- exclusions
+- properties: extra sonar.* properties as a map

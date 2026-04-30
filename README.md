@@ -14,6 +14,31 @@ Jenkins Shared Library for running SonarQube scans from A8S pipelines.
 4. Configure SonarQube in Jenkins with server name `sonarqube`.
 5. Install `sonar-scanner` on the Jenkins agent or create a Jenkins tool installation and pass its name through `SONARQUBE_SCANNER_TOOL`.
 
+## Backend setup
+
+Set these environment variables for `a8s-backend`:
+
+```bash
+SONARQUBE_BASE_URL=https://your-sonarqube-domain.com
+SONARQUBE_TOKEN=your_backend_read_token
+SONARQUBE_JENKINS_SERVER_NAME=sonarqube
+SONARQUBE_SCANNER_TOOL=sonar-scanner
+SONARQUBE_SCAN_ENABLED=true
+SONARQUBE_QUALITY_GATE_ENABLED=false
+```
+
+The backend exposes project scan data at:
+
+```text
+GET /api/v1/projects/{projectId}/sonarqube
+```
+
+The returned `projectKey` matches the Jenkins pipeline format:
+
+```text
+<workspaceNamespace>-<projectName>
+```
+
 ## Pipeline usage
 
 ```groovy
